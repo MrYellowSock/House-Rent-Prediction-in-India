@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.100.2"/>
+		<Timestamp>2023-12-28T03:00:29Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="y" optype="continuous" dataType="double"/>
+		<DataField name="bhk" optype="continuous" dataType="double"/>
+		<DataField name="size" optype="continuous" dataType="double"/>
+		<DataField name="bathroom" optype="continuous" dataType="double"/>
+		<DataField name="floor_level" optype="continuous" dataType="double"/>
+		<DataField name="total_floor" optype="continuous" dataType="double"/>
+		<DataField name="Carpet Area" optype="continuous" dataType="double"/>
+		<DataField name="Super Area" optype="continuous" dataType="double"/>
+		<DataField name="Bangalore" optype="continuous" dataType="double"/>
+		<DataField name="Chennai" optype="continuous" dataType="double"/>
+		<DataField name="Delhi" optype="continuous" dataType="double"/>
+		<DataField name="Hyderabad" optype="continuous" dataType="double"/>
+		<DataField name="Kolkata" optype="continuous" dataType="double"/>
+		<DataField name="Mumbai" optype="continuous" dataType="double"/>
+		<DataField name="Furnished" optype="continuous" dataType="double"/>
+		<DataField name="Semi-Furnished" optype="continuous" dataType="double"/>
+		<DataField name="Unfurnished" optype="continuous" dataType="double"/>
+		<DataField name="Bachelors" optype="continuous" dataType="double"/>
+		<DataField name="Bachelors/Family" optype="continuous" dataType="double"/>
+		<DataField name="Family" optype="continuous" dataType="double"/>
+		<DataField name="Contact Agent" optype="continuous" dataType="double"/>
+		<DataField name="Contact Owner" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="regression" algorithmName="sklearn.linear_model._base.LinearRegression">
+		<MiningSchema>
+			<MiningField name="y" usageType="target"/>
+			<MiningField name="bhk"/>
+			<MiningField name="size"/>
+			<MiningField name="bathroom"/>
+			<MiningField name="floor_level"/>
+			<MiningField name="total_floor"/>
+			<MiningField name="Carpet Area"/>
+			<MiningField name="Super Area"/>
+			<MiningField name="Bangalore"/>
+			<MiningField name="Chennai"/>
+			<MiningField name="Delhi"/>
+			<MiningField name="Hyderabad"/>
+			<MiningField name="Kolkata"/>
+			<MiningField name="Mumbai"/>
+			<MiningField name="Furnished"/>
+			<MiningField name="Semi-Furnished"/>
+			<MiningField name="Unfurnished"/>
+			<MiningField name="Bachelors"/>
+			<MiningField name="Bachelors/Family"/>
+			<MiningField name="Family"/>
+			<MiningField name="Contact Agent"/>
+			<MiningField name="Contact Owner"/>
+		</MiningSchema>
+		<RegressionTable intercept="4.1150419253347896E16">
+			<NumericPredictor name="bhk" coefficient="17066.155117916413"/>
+			<NumericPredictor name="size" coefficient="263148.1971065906"/>
+			<NumericPredictor name="bathroom" coefficient="97710.86183368789"/>
+			<NumericPredictor name="floor_level" coefficient="58330.943673034606"/>
+			<NumericPredictor name="total_floor" coefficient="21646.249780805447"/>
+			<NumericPredictor name="Carpet Area" coefficient="-1.16443781578279E15"/>
+			<NumericPredictor name="Super Area" coefficient="-1.164437815785308E15"/>
+			<NumericPredictor name="Bangalore" coefficient="-4.7870493253611344E16"/>
+			<NumericPredictor name="Chennai" coefficient="-4.7870493253614864E16"/>
+			<NumericPredictor name="Delhi" coefficient="-4.7870493253598016E16"/>
+			<NumericPredictor name="Hyderabad" coefficient="-4.7870493253623112E16"/>
+			<NumericPredictor name="Kolkata" coefficient="-4.7870493253608376E16"/>
+			<NumericPredictor name="Mumbai" coefficient="-4.787049325356644E16"/>
+			<NumericPredictor name="Furnished" coefficient="4.665367390221113E15"/>
+			<NumericPredictor name="Semi-Furnished" coefficient="4.665367390211413E15"/>
+			<NumericPredictor name="Unfurnished" coefficient="4.66536739021236E15"/>
+			<NumericPredictor name="Bachelors" coefficient="1.7028169400235428E15"/>
+			<NumericPredictor name="Bachelors/Family" coefficient="1.7028169400281552E15"/>
+			<NumericPredictor name="Family" coefficient="1.70281694001788E15"/>
+			<NumericPredictor name="Contact Agent" coefficient="1.5163274857853678E15"/>
+			<NumericPredictor name="Contact Owner" coefficient="1.516327485780216E15"/>
+		</RegressionTable>
+	</RegressionModel>
+</PMML>
