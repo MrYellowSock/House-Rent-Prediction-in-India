@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="SkLearn2PMML package" version="0.100.2"/>
-		<Timestamp>2023-12-28T03:00:29Z</Timestamp>
+		<Timestamp>2023-12-28T03:40:46Z</Timestamp>
 	</Header>
 	<DataDictionary>
 		<DataField name="y" optype="continuous" dataType="double"/>
@@ -31,11 +31,6 @@
 	<RegressionModel functionName="regression" algorithmName="sklearn.linear_model._base.LinearRegression">
 		<MiningSchema>
 			<MiningField name="y" usageType="target"/>
-			<MiningField name="bhk"/>
-			<MiningField name="size"/>
-			<MiningField name="bathroom"/>
-			<MiningField name="floor_level"/>
-			<MiningField name="total_floor"/>
 			<MiningField name="Carpet Area"/>
 			<MiningField name="Super Area"/>
 			<MiningField name="Bangalore"/>
@@ -52,29 +47,81 @@
 			<MiningField name="Family"/>
 			<MiningField name="Contact Agent"/>
 			<MiningField name="Contact Owner"/>
+			<MiningField name="bhk"/>
+			<MiningField name="size"/>
+			<MiningField name="bathroom"/>
+			<MiningField name="floor_level"/>
+			<MiningField name="total_floor"/>
 		</MiningSchema>
-		<RegressionTable intercept="4.1150419253347896E16">
-			<NumericPredictor name="bhk" coefficient="17066.155117916413"/>
-			<NumericPredictor name="size" coefficient="263148.1971065906"/>
-			<NumericPredictor name="bathroom" coefficient="97710.86183368789"/>
-			<NumericPredictor name="floor_level" coefficient="58330.943673034606"/>
-			<NumericPredictor name="total_floor" coefficient="21646.249780805447"/>
-			<NumericPredictor name="Carpet Area" coefficient="-1.16443781578279E15"/>
-			<NumericPredictor name="Super Area" coefficient="-1.164437815785308E15"/>
-			<NumericPredictor name="Bangalore" coefficient="-4.7870493253611344E16"/>
-			<NumericPredictor name="Chennai" coefficient="-4.7870493253614864E16"/>
-			<NumericPredictor name="Delhi" coefficient="-4.7870493253598016E16"/>
-			<NumericPredictor name="Hyderabad" coefficient="-4.7870493253623112E16"/>
-			<NumericPredictor name="Kolkata" coefficient="-4.7870493253608376E16"/>
-			<NumericPredictor name="Mumbai" coefficient="-4.787049325356644E16"/>
-			<NumericPredictor name="Furnished" coefficient="4.665367390221113E15"/>
-			<NumericPredictor name="Semi-Furnished" coefficient="4.665367390211413E15"/>
-			<NumericPredictor name="Unfurnished" coefficient="4.66536739021236E15"/>
-			<NumericPredictor name="Bachelors" coefficient="1.7028169400235428E15"/>
-			<NumericPredictor name="Bachelors/Family" coefficient="1.7028169400281552E15"/>
-			<NumericPredictor name="Family" coefficient="1.70281694001788E15"/>
-			<NumericPredictor name="Contact Agent" coefficient="1.5163274857853678E15"/>
-			<NumericPredictor name="Contact Owner" coefficient="1.516327485780216E15"/>
+		<LocalTransformations>
+			<DerivedField name="minMaxScaler(bhk)" optype="continuous" dataType="double">
+				<Apply function="+">
+					<Apply function="*">
+						<FieldRef field="bhk"/>
+						<Constant dataType="double">0.2</Constant>
+					</Apply>
+					<Constant dataType="double">-0.2</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="minMaxScaler(size)" optype="continuous" dataType="double">
+				<Apply function="+">
+					<Apply function="*">
+						<FieldRef field="size"/>
+						<Constant dataType="double">1.2531328320802005E-4</Constant>
+					</Apply>
+					<Constant dataType="double">-0.002506265664160401</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="minMaxScaler(bathroom)" optype="continuous" dataType="double">
+				<Apply function="+">
+					<Apply function="*">
+						<FieldRef field="bathroom"/>
+						<Constant dataType="double">0.1111111111111111</Constant>
+					</Apply>
+					<Constant dataType="double">-0.1111111111111111</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="minMaxScaler(floor_level)" optype="continuous" dataType="double">
+				<Apply function="+">
+					<Apply function="*">
+						<FieldRef field="floor_level"/>
+						<Constant dataType="double">0.011111111111111112</Constant>
+					</Apply>
+					<Constant dataType="double">0.011111111111111112</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="minMaxScaler(total_floor)" optype="continuous" dataType="double">
+				<Apply function="+">
+					<Apply function="*">
+						<FieldRef field="total_floor"/>
+						<Constant dataType="double">0.011363636363636364</Constant>
+					</Apply>
+					<Constant dataType="double">-0.011363636363636364</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="-5.6494448816957971E17">
+			<NumericPredictor name="minMaxScaler(bhk)" coefficient="15623.790102187784"/>
+			<NumericPredictor name="minMaxScaler(size)" coefficient="267829.2005478891"/>
+			<NumericPredictor name="minMaxScaler(bathroom)" coefficient="91112.57339063013"/>
+			<NumericPredictor name="minMaxScaler(floor_level)" coefficient="62603.48713238985"/>
+			<NumericPredictor name="minMaxScaler(total_floor)" coefficient="15683.343507771035"/>
+			<NumericPredictor name="Carpet Area" coefficient="9.0581459136973488E16"/>
+			<NumericPredictor name="Super Area" coefficient="9.0581459136971488E16"/>
+			<NumericPredictor name="Bangalore" coefficient="6.9690041679262682E17"/>
+			<NumericPredictor name="Chennai" coefficient="6.9690041679262349E17"/>
+			<NumericPredictor name="Delhi" coefficient="6.9690041679264038E17"/>
+			<NumericPredictor name="Hyderabad" coefficient="6.9690041679261453E17"/>
+			<NumericPredictor name="Kolkata" coefficient="6.9690041679262976E17"/>
+			<NumericPredictor name="Mumbai" coefficient="6.9690041679267238E17"/>
+			<NumericPredictor name="Furnished" coefficient="-2.0438497368936672E17"/>
+			<NumericPredictor name="Semi-Furnished" coefficient="-2.04384973689376544E17"/>
+			<NumericPredictor name="Unfurnished" coefficient="-2.04384973689375392E17"/>
+			<NumericPredictor name="Bachelors" coefficient="-1.8152414070672028E16"/>
+			<NumericPredictor name="Bachelors/Family" coefficient="-1.815241407066752E16"/>
+			<NumericPredictor name="Family" coefficient="-1.8152414070678008E16"/>
+			<NumericPredictor name="Contact Agent" coefficient="2698.790790966581"/>
+			<NumericPredictor name="Contact Owner" coefficient="-2698.790790966581"/>
 		</RegressionTable>
 	</RegressionModel>
 </PMML>
